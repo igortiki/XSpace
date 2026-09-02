@@ -13,7 +13,7 @@ final class APIService: CompanyService {
         self.configuration = configuration
     }
 
-    func company() async throws -> Company {
-        return Company(name: "TEST")
+    func fetchCompanyInfo() async throws -> CompanyInfo {
+        return CompanyInfo(name: "String", founder: "String", founded: 0, employees:0, launchSites: 0, valuation: 0)
     }
 }

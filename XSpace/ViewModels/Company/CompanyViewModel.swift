@@ -12,9 +12,9 @@ final class CompanyViewModel: CompanyViewModelProtocol {
         self.service = service
     }
     
-    func fetchCompany() async {
+    func fetchCompanyInfo() async {
         do {
-            let company = try await service.company()
+            let companyInfo = try await service.fetchCompanyInfo()
         }
         catch {
             print ("error")

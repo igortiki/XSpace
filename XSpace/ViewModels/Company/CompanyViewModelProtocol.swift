@@ -6,5 +6,5 @@
 //
 
 protocol CompanyViewModelProtocol {
-    func fetchCompany() async
+    func fetchCompanyInfo() async
 }

@@ -6,5 +6,5 @@
 //
 
 protocol CompanyService {
-    func company() async throws -> Company
+    func fetchCompanyInfo() async throws -> CompanyInfo
 }
