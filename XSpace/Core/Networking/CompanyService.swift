@@ -5,6 +5,6 @@
 //  Created by Igor Malasevschi on 9/1/26
 //
 
-protocol CompanyService {
+protocol CompanyService: Sendable {
     func fetchCompanyInfo() async throws -> CompanyInfo
 }

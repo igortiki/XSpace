@@ -1,5 +1,5 @@
 //
-//  Company.swift
+//  CompanyInfo.swift
 //  XSpace
 //
 //  Created by Igor Malasevschi on 9/1/26

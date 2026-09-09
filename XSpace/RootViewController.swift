@@ -9,7 +9,7 @@ import UIKit
 
 class RootViewController: UIViewController {
     
-    private var companyViewController: CompanyViewController?
+    private var launchesViewController: LaunchesViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,14 +21,14 @@ class RootViewController: UIViewController {
     private func configureRootViewController() {
         let apiService = APIService(configuration: .local)
         let companyViewModel = CompanyViewModel(service: apiService)
-        let companyViewController = CompanyViewController(viewModel: companyViewModel)
-        self.companyViewController = companyViewController
-        addChild(companyViewController)
+        let launchesViewController = LaunchesViewController(viewModel: companyViewModel)
+        self.launchesViewController = launchesViewController
+        addChild(launchesViewController)
         
-        companyViewController.view.frame = self.view.bounds
-        companyViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        view.addSubview(companyViewController.view)
-        companyViewController.didMove(toParent: self)
+        launchesViewController.view.frame = self.view.bounds
+        launchesViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.addSubview(launchesViewController.view)
+        launchesViewController.didMove(toParent: self)
     }
 }
 
