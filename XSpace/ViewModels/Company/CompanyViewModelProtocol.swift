@@ -4,10 +4,11 @@
 //
 //  Created by Igor Malasevschi on 9/1/26
 //
-import UIKit
+import Observation
 
 @MainActor
 protocol CompanyViewModelProtocol: Observable {
     func fetchCompanyInfo() async
-    var state: LoadState<CompanyInfo> { get }
+    var state: LoadState<String> { get }
+    var topHeaderSection: String { get }
 }

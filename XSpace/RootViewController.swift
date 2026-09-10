@@ -13,7 +13,6 @@ class RootViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
         configureRootViewController()
         // Do any additional setup after loading the view.
     }

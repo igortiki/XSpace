@@ -11,25 +11,29 @@ import Foundation
 @MainActor
 final class CompanyViewModel: CompanyViewModelProtocol {
     private let service: CompanyService
-    private(set) var state: LoadState<CompanyInfo> = .idle
+    private(set) var state: LoadState<String> = .idle
     
     
     init(service: CompanyService) {
         self.service = service
     }
     
+    var topHeaderSection: String {
+        "Company"
+    }
+    
     func fetchCompanyInfo() async {
         state = .loading
         do {
             let info = try await service.fetchCompanyInfo()
-            state = .loaded(info)
+            state = .loaded(makeDisplayText(from: info))
         }
         catch {
             state = .failed(error)
         }
     }
     
-    func makeDisplayText(from info: CompanyInfo) -> String {
+    private func makeDisplayText(from info: CompanyInfo) -> String {
         "\(info.name) was founded by \(info.founder) in \(info.founded). " +
         "It now has \(info.employees) employees, \(info.launchSites) launch sites, " +
         "and is valued at USD \(Formatter.valuation(info.valuation))."
