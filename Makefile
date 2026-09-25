@@ -1,26 +1,27 @@
 .DEFAULT_GOAL := help
 
 PROJECT := App/XSpace.xcodeproj
-SCHEME  := XSpace
-SIM     := platform=iOS Simulator,name=iPhone 16
 
-.PHONY: help bootstrap project build test server clean
+.PHONY: help bootstrap project build build-tvos test clean
 
-help: ## показать доступные команды
+help: ## list available commands
 	@grep -E "^[a-z-]+:.*##" $(MAKEFILE_LIST) | sed "s/:.*## /\t/"
 
-bootstrap: ## поставить инструменты
+bootstrap: ## install required tools
 	brew install xcodegen
 
-project: ## сгенерировать и открыть проект
+project: ## generate and open the Xcode project
 	cd App && xcodegen generate --spec project.yml
 	open $(PROJECT)
 
-build: ## собрать приложение
-	xcodebuild -project $(PROJECT) -scheme $(SCHEME) -destination "generic/platform=iOS Simulator" build
+build: ## build the iOS app
+	xcodebuild -project $(PROJECT) -scheme XSpace-iOS -destination "generic/platform=iOS Simulator" build
 
-test: ## прогнать тесты пакета
+build-tvos: ## build the tvOS app
+	xcodebuild -project $(PROJECT) -scheme XSpace-tvOS -destination "generic/platform=tvOS Simulator" build
+
+test: ## run XSpaceCore tests
 	cd Packages/XSpaceCore && swift test
 
-clean: ## удалить сгенерированный проект и артефакты
+clean: ## remove generated project and build artifacts
 	rm -rf $(PROJECT) Packages/XSpaceCore/.build
