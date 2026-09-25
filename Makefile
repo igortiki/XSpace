@@ -7,11 +7,13 @@ PROJECT := App/XSpace.xcodeproj
 help: ## list available commands
 	@grep -E "^[a-z-]+:.*##" $(MAKEFILE_LIST) | sed "s/:.*## /\t/"
 
-bootstrap: ## install required tools
-	brew install xcodegen
+bootstrap: ## install required tools at their pinned versions
+	brew install mint
+	mint bootstrap
 
+# NOTE: run from the repo root - Mint only looks for Mintfile in the current directory
 project: ## generate and open the Xcode project
-	cd App && xcodegen generate --spec project.yml
+	mint run xcodegen generate --spec App/project.yml
 	open $(PROJECT)
 
 build: ## build the iOS app
