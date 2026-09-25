@@ -6,6 +6,10 @@
 	objectVersion = 110;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		84C1FCA530668221001BAAB2 /* XSpaceCore in Frameworks */ = {isa = PBXBuildFile; productRef = 84C1FCA430668221001BAAB2 /* XSpaceCore */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		84C6769A303F765700FFFC7F /* XSpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XSpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -35,6 +39,7 @@
 		84C67697303F765700FFFC7F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
+				84C1FCA530668221001BAAB2 /* XSpaceCore in Frameworks */,
 			);
 		};
 /* End PBXFrameworksBuildPhase section */
@@ -73,6 +78,9 @@
 				84C6769C303F765700FFFC7F /* XSpace */,
 			);
 			name = XSpace;
+			packageProductDependencies = (
+				84C1FCA430668221001BAAB2 /* XSpaceCore */,
+			);
 			productName = XSpace;
 			productReference = 84C6769A303F765700FFFC7F /* XSpace.app */;
 			productType = "com.apple.product-type.application";
@@ -101,6 +109,9 @@
 			);
 			mainGroup = 84C67691303F765700FFFC7F;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				84C1FCA330668221001BAAB2 /* XCLocalSwiftPackageReference "../Packages/XSpaceCore" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 84C6769B303F765700FFFC7F /* Products */;
 			projectDirPath = "";
@@ -329,6 +340,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		84C1FCA330668221001BAAB2 /* XCLocalSwiftPackageReference "../Packages/XSpaceCore" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../Packages/XSpaceCore;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		84C1FCA430668221001BAAB2 /* XSpaceCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = XSpaceCore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 84C67692303F765700FFFC7F /* Project object */;
 	validationLevel = 1;
